@@ -65,7 +65,11 @@ int main(int argc, char** argv)
 
 ### 3、PEB
 
-#### 3.1 PEB结构
+#### 3.1 [PE文件结构](https://blog.csdn.net/qiming_zhang/article/details/7309909)
+
+![](\img\pe文件框架结构.png)
+
+#### 3.2 PEB结构
 
 ```c++
 typedef struct _PEB {
@@ -84,7 +88,9 @@ typedef struct _PEB {
 } PEB, *PPEB;
 ```
 
-#### 3.2
+#### 3.3 Shellcode原理
+
+​		Shellcode实际是一段代码(也可以是填充数据)，可以用来发送到服务器，利用已存在的特定漏洞造成溢出，通称“缓冲区溢出攻击”中植入进程的代码。这段代码可以是导致常见的恶作剧目的的弹出一个消息框弹出，也可以用来删改重要文件、窃取数据、上传木马病毒并运行，甚至是出于破坏目的的格式化硬盘等等。
 
 ### 4、修改shellcode功能为运行记事本程序notepad. exe
 
