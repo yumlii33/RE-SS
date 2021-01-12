@@ -17,7 +17,7 @@ FARPROC g_pOrginalFunction = NULL;
 
 BOOL WINAPI MySetWindowTextW(HWND hWnd, LPWSTR lpString)
 {
-	wchar_t* pNum = L"零一二三四五六七八九";
+	const wchar_t* pNum = L"零一二三四五六七八九";
 	wchar_t temp[2] = { 0, };
 	int i = 0, nLen = 0, nIndex = 0;
 
@@ -39,10 +39,8 @@ BOOL WINAPI MySetWindowTextW(HWND hWnd, LPWSTR lpString)
 	return ((PFSETWINDOWTEXTW)g_pOrginalFunction)(hWnd, lpString);
 }
 
-/**********************************/
 //    函数名：hook_iat
 //	  功能  ：负责实施IAT钩取的核心函数
-/**********************************/
 BOOL hook_iat(LPCSTR szDllName, PROC pfnOrg, PROC pfnNew)
 {
 	HMODULE hMod;
