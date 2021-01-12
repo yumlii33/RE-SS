@@ -53,21 +53,21 @@ int main(int argc, char** argv)
 
 #### 1.2 运行结果：成功
 
-![image-20201022140640653](/img/image-20201022140640653.png)
+![image-20201022140640653](/chap0x04-shellcode/img/image-20201022140640653.png)
 
 ### 2、从汇编源码编译通过并成功dump
 
 通过执行`nasm`和`objdump`命令可以验证。
 
-![image-20201029140022556](/img/image-20201029140022556.png)
+![image-20201029140022556](/chap0x04-shellcode/img/image-20201029140022556.png)
 
-![image-20201029140214155](/img/image-20201029140214155.png)
+![image-20201029140214155](/chap0x04-shellcode/img/image-20201029140214155.png)
 
 ### 3、PEB
 
 #### 3.1 [PE文件结构](https://blog.csdn.net/qiming_zhang/article/details/7309909)
 
-![](\img\pe文件框架结构.png)
+![](/chap0x04-shellcode/img/pe文件框架结构.png)
 
 #### 3.2 PEB结构
 
@@ -98,15 +98,15 @@ typedef struct _PEB {
 
 `00 00 00 00 65 78 65 2e 63 6c 61 63`->`00 65 78 65 2e 64 61 70 65 74 6f 6e`
 
-![image-20201029145659148](/img/image-20201029145659148.png)
+![image-20201029145659148](/chap0x04-shellcode/img/image-20201029145659148.png)
 
 #### 4.2 重新`dump`
 
-![image-20201029150255387](/img/image-20201029150255387.png)
+![image-20201029150255387](/chap0x04-shellcode/img/image-20201029150255387.png)
 
 #### 4.3 将结果粘贴到代码里，重新运行
 
-![image-20201029150353246](/img/image-20201029150353246.png)
+![image-20201029150353246](/chap0x04-shellcode/img/image-20201029150353246.png)
 
 ### 5、修改shellcode功能为下载执行器，即下下载一个可执行文件，然后再运行
 
@@ -130,5 +130,5 @@ int main()
 
 报错：
 
-![image-20201029212538113](/img/image-20201029212538113.png)
+![image-20201029212538113](/chap0x04-shellcode/img/image-20201029212538113.png)
 
