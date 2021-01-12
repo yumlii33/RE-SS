@@ -65,6 +65,27 @@ int main(int argc, char** argv)
 
 ### 3、PEB
 
+#### 3.1 PEB结构
+
+```c++
+typedef struct _PEB {
+  BYTE                          Reserved1[2];
+  BYTE                          BeingDebugged; //被调试状态
+  BYTE                          Reserved2[1];
+  PVOID                         Reserved3[2];
+  PPEB_LDR_DATA                 Ldr;
+  PRTL_USER_PROCESS_PARAMETERS  ProcessParameters;
+  BYTE                          Reserved4[104];
+  PVOID                         Reserved5[52];
+  PPS_POST_PROCESS_INIT_ROUTINE PostProcessInitRoutine;
+  BYTE                          Reserved6[128];
+  PVOID                         Reserved7[1];
+  ULONG                         SessionId;
+} PEB, *PPEB;
+```
+
+#### 3.2
+
 ### 4、修改shellcode功能为运行记事本程序notepad. exe
 
 #### 4.1 修改代码：将`calc.exe`修改为`notepad.exe`
